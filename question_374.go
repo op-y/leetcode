@@ -1,6 +1,6 @@
 package leetcode
 
-/** 
+/**
  * Forward declaration of guess API.
  * @param  num   your guess
  * @return 	     -1 if num is lower than the guess number
@@ -10,17 +10,17 @@ package leetcode
  */
 
 func guessNumber(n int) int {
-    low := 1
-    high := n
-    for {
-        mid := (low + high) / 2
-        ok := guess(mid)
-        if ok < 0 {
-             high = mid -1
-        } else if ok > 0 {
-             low = mid + 1
-        } else {
-            return mid
-        }
-    }
+	low := 1
+	high := n
+	for {
+		mid := (low + high) / 2
+		ok := guessNumber(mid)
+		if ok < 0 {
+			high = mid - 1
+		} else if ok > 0 {
+			low = mid + 1
+		} else {
+			return mid
+		}
+	}
 }

@@ -1,5 +1,7 @@
+package leetcode
+
 import (
-    "strings"
+	"strings"
 )
 
 func myAtoi(s string) int {
@@ -28,25 +30,25 @@ func myAtoi(s string) int {
 	for i := len(digits) - 1; i >= 0; i-- {
 		nsum := sum + digits[i]*factor
 		if sign == -1 && nsum > (1<<31) {
-			sum = 1<<31
+			sum = 1 << 31
 			break
 		}
 		if sign == 1 && nsum > (1<<31)-1 {
-			sum = (1<<31)-1
+			sum = (1 << 31) - 1
 			break
 		}
 		sum = nsum
 		factor *= 10
-        if factor < 0 {
-		    if sign == -1 {
-			    sum = 1<<31
-			    break
-		    }
-		    if sign == 1 {
-			    sum = (1<<31)-1
-			    break
-		    }
-        }
+		if factor < 0 {
+			if sign == -1 {
+				sum = 1 << 31
+				break
+			}
+			if sign == 1 {
+				sum = (1 << 31) - 1
+				break
+			}
+		}
 	}
 	sum *= sign
 	return sum

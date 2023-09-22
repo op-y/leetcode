@@ -1,25 +1,16 @@
-package main
-
-import (
-	"fmt"
-)
-
-type ListNode struct {
-    Val int
-    Next *ListNode
-}
+package leetcode
 
 func swapPairs(head *ListNode) *ListNode {
-    if head == nil {
-        return nil
-    }
-    if head.Next == nil {
-        return head
-    }
+	if head == nil {
+		return nil
+	}
+	if head.Next == nil {
+		return head
+	}
 
 	odd, even := split(head)
 	h := join(even, odd)
-    return h
+	return h
 }
 
 func split(head *ListNode) (*ListNode, *ListNode) {
@@ -45,7 +36,7 @@ func split(head *ListNode) (*ListNode, *ListNode) {
 
 func join(first, second *ListNode) *ListNode {
 	head := first
-	
+
 	for first != nil {
 		p := first.Next
 		first.Next = second
@@ -63,19 +54,18 @@ func join(first, second *ListNode) *ListNode {
 	return head
 }
 
-func main() {
-	n1 := &ListNode{Val: 1}
-	n2 := &ListNode{Val: 2}
-	n3 := &ListNode{Val: 3}
-	n4 := &ListNode{Val: 4}
-	n1.Next = n2
-	n2.Next = n3
-	n3.Next = n4
-	l := n1
-
-
-	head := swapPairs(l)
-	for ; head != nil; head = head.Next {
-		fmt.Printf("%d->", head.Val)
-	}
-}
+//func main() {
+//	n1 := &ListNode{Val: 1}
+//	n2 := &ListNode{Val: 2}
+//	n3 := &ListNode{Val: 3}
+//	n4 := &ListNode{Val: 4}
+//	n1.Next = n2
+//	n2.Next = n3
+//	n3.Next = n4
+//	l := n1
+//
+//	head := swapPairs(l)
+//	for ; head != nil; head = head.Next {
+//		fmt.Printf("%d->", head.Val)
+//	}
+//}
