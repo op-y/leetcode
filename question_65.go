@@ -1,10 +1,10 @@
 package leetcode
 
 func isNumber(s string) bool {
-	if !isValid(s) {
+	if !isValid68(s) {
 		return false
 	}
-	tokens := split(s)
+	tokens := split68(s)
 	return checkTrans(tokens)
 }
 
@@ -53,7 +53,7 @@ func checkN(tokens []string) bool {
 
 	// 不能再出现S
 	for _, t := range tokens {
-		if t == "S"  {
+		if t == "S" {
 			return false
 		}
 	}
@@ -61,7 +61,7 @@ func checkN(tokens []string) bool {
 	if l == 1 && tokens[0] != "N" {
 		return false
 	}
-	
+
 	if l == 2 && tokens[0] == tokens[1] {
 		return false
 	}
@@ -80,7 +80,7 @@ func checkE(tokens []string) (bool, int) {
 	for i, item := range tokens {
 		if item == "E" {
 			count++
-			idx = i	
+			idx = i
 		}
 	}
 	if count == 0 {
@@ -104,18 +104,18 @@ func checkE(tokens []string) (bool, int) {
 	return true, idx
 }
 
-func split(s string) []string {
+func split68(s string) []string {
 	tokens := []string{}
 	sign := map[rune]bool{
-        '-':true,
-        '+':true,
+		'-': true,
+		'+': true,
 	}
-	dot := map[rune]bool {
-        '.':true,
+	dot := map[rune]bool{
+		'.': true,
 	}
-	e := map[rune]bool {
-        'E':true,
-        'e':true,
+	e := map[rune]bool{
+		'E': true,
+		'e': true,
 	}
 	num := false
 	for _, c := range s {
@@ -126,7 +126,7 @@ func split(s string) []string {
 			}
 			tokens = append(tokens, "S")
 			continue
-		}	
+		}
 		if _, ok := dot[c]; ok {
 			if num {
 				tokens = append(tokens, "N")
@@ -134,7 +134,7 @@ func split(s string) []string {
 			}
 			tokens = append(tokens, "D")
 			continue
-		}	
+		}
 		if _, ok := e[c]; ok {
 			if num {
 				tokens = append(tokens, "N")
@@ -152,30 +152,29 @@ func split(s string) []string {
 	return tokens
 }
 
+func isValid68(s string) bool {
+	valid := map[rune]bool{
+		'0': true,
+		'1': true,
+		'2': true,
+		'3': true,
+		'4': true,
+		'5': true,
+		'6': true,
+		'7': true,
+		'8': true,
+		'9': true,
+		'-': true,
+		'+': true,
+		'.': true,
+		'E': true,
+		'e': true,
+	}
 
-func isValid(s string) bool {
-    valid := map[rune]bool{
-        '0':true,
-        '1':true,
-        '2':true,
-        '3':true,
-        '4':true,
-        '5':true,
-        '6':true,
-        '7':true,
-        '8':true,
-        '9':true,
-        '-':true,
-        '+':true,
-        '.':true,
-        'E':true,
-        'e':true,
-    }
-
-    for _, c := range s {
-        if _, ok := valid[c]; !ok {
-            return false
-        }
-    }
-    return true
+	for _, c := range s {
+		if _, ok := valid[c]; !ok {
+			return false
+		}
+	}
+	return true
 }
