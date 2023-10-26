@@ -1,33 +1,19 @@
 package leetcode
 
 func maxProfit122(prices []int) int {
-	if prices == nil {
-		return 0
+	n := len(prices)
+	dp := make([][2]int, n)
+	dp[0][1] = -prices[0]
+	for i := 1; i < n; i++ {
+		dp[i][0] = max123(dp[i-1][0], dp[i-1][1]+prices[i])
+		dp[i][1] = max123(dp[i-1][1], dp[i-1][0]-prices[i])
 	}
-	length := len(prices)
-	if length <= 1 {
-		return 0
-	}
+	return dp[n-1][0]
+}
 
-	maxIncome := 0
-	buy := 0
-	sale := 0
-	for i := 1; i < length; i++ {
-		if prices[i] > prices[sale] {
-			sale = i
-			if i == length-1 {
-				maxIncome += prices[sale] - prices[buy]
-			}
-		} else {
-			if buy == sale {
-				buy = i
-				sale = i
-			} else {
-				maxIncome += prices[sale] - prices[buy]
-				buy = i
-				sale = i
-			}
-		}
+func max123(a, b int) int {
+	if a > b {
+		return a
 	}
-	return maxIncome
+	return b
 }
