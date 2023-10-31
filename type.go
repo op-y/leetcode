@@ -12,8 +12,13 @@ type ListNode struct {
 }
 
 type Node struct {
-    Val int
-    Left *Node
-    Right *Node
-    Next *Node
+	Val   int
+	Left  *Node
+	Right *Node
+	Next  *Node
+}
+
+type GraphNode struct {
+	Val       int
+	Neighbors []*GraphNode
 }
