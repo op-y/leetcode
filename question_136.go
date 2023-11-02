@@ -5,7 +5,7 @@ func singleNumber(nums []int) int {
         if idx == 0 {
             continue
         }
-        nums[0] ^= value
+        nums[0] ^= value // 全部按位异或
     }
     return nums[0]
 }

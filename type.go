@@ -22,3 +22,9 @@ type GraphNode struct {
 	Val       int
 	Neighbors []*GraphNode
 }
+
+type RandomNode struct {
+	Val    int
+	Next   *RandomNode
+	Random *RandomNode
+}
