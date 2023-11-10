@@ -2,15 +2,15 @@ package leetcode
 
 func maxPathSum(root *TreeNode) int {
 	found := false
-	max := 0
+	res := 0
 	var postorder func(*TreeNode) int
 	postorder = func(root *TreeNode) int {
 		if root == nil {
 			return 0
 		}
 		if root.Left == nil && root.Right == nil {
-			if !found || root.Val > max {
-				max = root.Val
+			if !found || root.Val > res {
+				res = root.Val
 				found = true
 			}
 			return root.Val
@@ -24,24 +24,16 @@ func maxPathSum(root *TreeNode) int {
 			rmax = postorder(root.Right)
 		}
 
-		curMax := max124(root.Val, max124(root.Val+lmax+rmax, max124(root.Val+lmax, root.Val+rmax)))
-		if !found || curMax > max {
-			max = curMax
+		curMax := max(root.Val, max(root.Val+lmax+rmax, max(root.Val+lmax, root.Val+rmax)))
+		if !found || curMax > res {
+			res = curMax
 			found = true
 		}
-		retMax := max124(root.Val, max124(root.Val+lmax, root.Val+rmax))
+		retMax := max(root.Val, max(root.Val+lmax, root.Val+rmax))
 		return retMax
 	}
 	postorder(root)
-	return max
-}
-
-func max124(a, b int) int {
-	if a > b {
-		return a
-	} else {
-		return b
-	}
+	return res
 }
 
 //func main() {

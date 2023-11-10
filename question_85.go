@@ -47,15 +47,8 @@ func maximalRectangle(matrix [][]byte) (ans int) {
 		for i, l := range left {
 			height := down[i] - up[i] - 1
 			area := height * l[j]
-			ans = max85(ans, area)
+			ans = max(ans, area)
 		}
 	}
 	return
-}
-
-func max85(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
 }

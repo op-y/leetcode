@@ -32,10 +32,3 @@ func min57(a, b int) int {
 	}
 	return b
 }
-
-func max57(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

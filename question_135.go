@@ -14,20 +14,13 @@ func candy(ratings []int) int {
 	}
 	// from right to left
 	right := 0
-	for i:=l-1; i>=0; i-- {
-		if i<l-1 && ratings[i] > ratings[i+1] {
+	for i := l - 1; i >= 0; i-- {
+		if i < l-1 && ratings[i] > ratings[i+1] {
 			right++
 		} else {
 			right = 1
 		}
-		ans += max135(left[i], right)
+		ans += max(left[i], right)
 	}
 	return ans
-}
-
-func max135(a, b int) int {
-    if a > b {
-        return a
-    }
-    return b
 }

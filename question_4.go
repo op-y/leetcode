@@ -9,7 +9,6 @@ func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 		midIndex1, midIndex2 := totalLength/2-1, totalLength/2
 		return float64(getKthElement(nums1, nums2, midIndex1+1)+getKthElement(nums1, nums2, midIndex2+1)) / 2.0
 	}
-	return 0
 }
 
 func getKthElement(nums1, nums2 []int, k int) int {
@@ -36,12 +35,4 @@ func getKthElement(nums1, nums2 []int, k int) int {
 			index2 = newIndex2 + 1
 		}
 	}
-	return 0
-}
-
-func min(x, y int) int {
-	if x < y {
-		return x
-	}
-	return y
 }
