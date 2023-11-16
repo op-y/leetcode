@@ -23,3 +23,17 @@ func max4s(a ...int) int {
     }
     return res
 }
+
+func gcd(a, b int) int {
+    for a != 0 {
+        a, b = b%a, a
+    }
+    return b
+}
+
+func abs(x int) int {
+    if x < 0 {
+        return -x
+    }
+    return x
+}
