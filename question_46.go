@@ -9,7 +9,7 @@ func permute(nums []int) [][]int {
 		return nil
 	}
 	if len(nums) == 1 {
-		return [][]int{[]int{nums[0]}}
+		return [][]int{{nums[0]}}
 	}
 
 	//fmt.Printf("nums: %v\n", nums)

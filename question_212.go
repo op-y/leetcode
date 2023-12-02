@@ -74,7 +74,7 @@ func findWords212(board [][]byte, words []string) []string {
 	}
 
 	result := []string{}
-	for word, _ := range ans {
+	for word := range ans {
 		result = append(result, word)
 	}
 	return result
