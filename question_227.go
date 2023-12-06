@@ -4,7 +4,7 @@ import (
 	"strconv"
 )
 
-func calculate(s string) int {
+func calculate227(s string) int {
 	l := len(s)
 	nums := []int{}
 	ops := []byte{}
