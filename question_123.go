@@ -1,6 +1,6 @@
 package leetcode
 
-func maxProfit124(prices []int) int {
+func maxProfit123(prices []int) int {
 	buy1, sell1 := -prices[0], 0
 	buy2, sell2 := -prices[0], 0
 
