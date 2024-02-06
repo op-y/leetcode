@@ -18,6 +18,7 @@ func nextPermutation(nums []int) {
 	sort31(nums, 0)
 }
 
+// 这个处理不是最简单的 可以从后往前找第一个非降序元素
 func checkTail(nums []int, idx int) bool {
 	pos := -1
 	value := 0

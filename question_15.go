@@ -4,6 +4,7 @@ import (
 	"fmt"
 )
 
+// 排序+双指针
 func threeSum(nums []int) [][]int {
 	if nums == nil {
 		return nil

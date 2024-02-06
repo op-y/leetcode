@@ -5,6 +5,7 @@ func isPalindrome9(x int) bool {
 	if x < 0 {
 		return false
 	}
+	// 可以只反转一半后做比较
 	result := 0
 	for {
 		remainder := x % 10
